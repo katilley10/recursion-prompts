@@ -21,14 +21,12 @@ var factorial = function(n) {
 var sum = function(array) {
     if (array.length === 0) {
         return 0;
+    } else if (array.length >= 1) {
+        let tempArr = array;
+        let temp = tempArr[0];
+        tempArr.shift();
+        return temp + sum(tempArr);
     }
-    let addIt = function(array, i) {
-        if(i === array.length-1){
-            return array[i];
-        }
-        return array[i] + addIt(array, i+1);
-    }
-    return addIt(array, 0);
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
