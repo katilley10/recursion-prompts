@@ -21,11 +21,8 @@ var factorial = function(n) {
 var sum = function(array) {
     if (array.length === 0) {
         return 0;
-    } else if (array.length >= 1) {
-        let tempArr = array;
-        let temp = tempArr[0];
-        tempArr.shift();
-        return temp + sum(tempArr);
+    } else {
+        return array[0] + sum(array.slice(1));
     }
 };
 
