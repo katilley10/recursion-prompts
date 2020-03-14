@@ -31,10 +31,10 @@ var sum = function(array) {
 var arraySum = function(array) {
     if (array.length === 0) {
         return 0;
-    } else if (typeof array[0] === 'number') {
+    } else if (array[0].length === undefined) {
         return array[0] + arraySum(array.slice(1));
-    } else if (Array.isArray(array[0]) === true) {
-        return array[0][0] + arraySum(array[0].slice[1]);
+    } else if (Array.isArray(array[0])) {
+        return arraySum(array[0]) + arraySum(array.slice(1));
     }
 };
 
