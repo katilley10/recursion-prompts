@@ -75,21 +75,21 @@ var range = function(x, y) {
             x.push(x[last] + 1);
             return range(x,y);
         } else if (x[last] + 1 === y) {
-
             return x;
         } else if (x[last] - 1 > y) {
             x.push(x[last] - 1);
             return range(x,y);
         } else if (x[last] - 1 === y) {
-
             return x;
         }
-    } else if (typeof x === 'number' && x < y) {
+    } else if (typeof x === 'number' && x < y && x + 1 !== y) {
         let arr = [x + 1];
         return range(arr,y);
-    } else if (typeof x === 'number' && x > y) {
+    } else if (typeof x === 'number' && x > y && x - 1 !== y) {
       let arr = [x - 1];
       return range(arr,y);
+    } else {
+        return [];
     }
 };
 
