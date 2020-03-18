@@ -69,6 +69,28 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+    if (Array.isArray(x)) {
+        let last = x.length - 1;
+        if (x[last] + 1 < y) {
+            x.push(x[last] + 1);
+            return range(x,y);
+        } else if (x[last] + 1 === y) {
+
+            return x;
+        } else if (x[last] - 1 > y) {
+            x.push(x[last] - 1);
+            return range(x,y);
+        } else if (x[last] - 1 === y) {
+
+            return x;
+        }
+    } else if (typeof x === 'number' && x < y) {
+        let arr = [x + 1];
+        return range(arr,y);
+    } else if (typeof x === 'number' && x > y) {
+      let arr = [x - 1];
+      return range(arr,y);
+    }
 };
 
 // 7. Compute the exponent of a number.
