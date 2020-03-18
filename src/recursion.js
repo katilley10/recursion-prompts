@@ -104,7 +104,7 @@ var exponent = function(base, exp) {
     } else if (exp === 1) {
         return base;
     } else if (exp > 1) {
-        return base * exp(base, exp - 1);
+        return base * exponent(base, exp - 1);
     }
 };
 
