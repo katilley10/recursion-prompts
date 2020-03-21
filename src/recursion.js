@@ -160,7 +160,26 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
-  let num = x * y;
+    if (typeof y === 'number') {
+        if (y > x) {
+          return x;
+        } else if (y === 0) {
+            return NaN;
+        } else if (y+y > x) {
+            return x-y;
+        } else if (y+y <= x) {
+            let ys = [y,y];
+            return modulo(x, ys);
+        }
+    } else if (Array.isArray(y)) {
+        let sum = y.reduce((acc, cur) => acc + cur, 0);
+        if (sum + y[0] >= x) {
+            return x - sum;
+        } else if (sum + y[0] < x) {
+            y.push(y[0]);
+            return modulo(x,y);
+        }
+    }
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
